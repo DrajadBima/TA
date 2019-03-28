@@ -1,0 +1,32 @@
+Drajad Bima A
+progress
+1. Mendapat data tweet json
+2. Tahap preprocessing (stemming, delete symbol)
+3. Membuat model GloVe
+4. Tes model
+kendala
+1. Menentukan kapan step NER dan GloVe digunakan
+next
+1. mencoba NER untuk mendapatkan klasifikasi data yang dibutuhkan
+
+kesulitan mendapat data train yg berbahasa indonesia yg cocok
+menggunakan stanford ner
+output kurang akurat karena data trainnya. stanford?
+coba anago mas yudi buat nernya
+
+Stanford NER
+test ner
+java -cp stanford-ner/stanford-ner.jar edu.stanford.nlp.ie.crf.CRFClassifier -loadClassifier model/ner-model.ser.gz -testFile data/testNERIndo1.tsv
+
+train model
+java -cp stanford-ner/stanford-ner.jar edu.stanford.nlp.ie.crf.CRFClassifier -prop trainIndo.prop
+
+validNER sama TestNER pondok BBB saya ganti O
+(odp-rt)
+
+with open('data/TrainNER.txt')as file:
+    lines = file.readlines()
+    for i, line in enumerate(lines):
+        print (i)
+        if line != '\n':
+            word, tag = line.split('\t')
