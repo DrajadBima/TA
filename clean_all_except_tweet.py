@@ -33,6 +33,10 @@ for i in loadJson:
     text = re.sub(r'^ ', '', text, flags=re.MULTILINE)
     text = re.sub(r' $', '', text, flags=re.MULTILINE)
     text = text.lower()
+    
+    
+    text = re.sub('\|','')
+    
 
     text = stemmer.stem(text)
     # text = ' '.join([t for t in text.split() if t not in stopwords])
